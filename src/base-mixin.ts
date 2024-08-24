@@ -1,6 +1,6 @@
 type IBaseMixinArgs<TBase, TMixin> = {
   // TODO: can be strongly typed to be methods
-  methods: Array<keyof TMixin>;
+  methodNames: Array<keyof TMixin>;
   initMixin: (baseObj: TBase) => TMixin;
 };
 
@@ -11,12 +11,18 @@ export class BaseMixin<TBase, TMixin> {
     this.args = args;
   }
 
-  public initMixin(baseObj: TBase): void {
-    const mixin = this.args.initMixin(baseObj);
+  public initMixin(base: TBase): void {
+    const mixin = this.args.initMixin(base);
 
-    this.args.methods.forEach(method => {
-      // @ts-expect-error: 2536, 2349, 7019
-      baseObj[method] = (...args) => mixin[method](...args);
+    this.args.methodNames.forEach(methodName => {
+      const maybeMethod = mixin[methodName];
+
+      if (typeof maybeMethod !== "function") {
+        throw new Error(`Invalid method: ${String(methodName)}`);
+      }
+
+      // @ts-expect-error: Type 'keyof TMixin' cannot be used to index type 'TBase' (TS2536).
+      base[methodName] = maybeMethod.bind(mixin);
     });
   }
 }
