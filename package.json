@@ -6,6 +6,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "setup": "yarn install --ignore-scripts",
     "build": "tsc",
     "prepare": "yarn build",
     "publish:dry-run": "npm publish --dry-run",
