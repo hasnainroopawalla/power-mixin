@@ -19,7 +19,8 @@ class AddService implements IAddService {
 export class AddMixin extends BaseMixin<ICalculator, IAddService> {
   constructor() {
     super({
-      methodNames: ["add"],
+      methods: ["add"],
+      props: [],
       initMixin: baseObj => new AddService(baseObj),
     });
   }
@@ -52,7 +53,8 @@ class MultiplyService implements IMultiplyService {
 export class MultiplyMixin extends BaseMixin<ICalculator, IMultiplyService> {
   constructor() {
     super({
-      methodNames: ["multiply", "runningValue"],
+      methods: ["multiply"],
+      props: ["runningValue"],
       initMixin: baseObj => new MultiplyService(baseObj),
     });
   }
@@ -64,4 +66,4 @@ const calculator = mix<ICalculator>({
   mixins: [new AddMixin(), new MultiplyMixin()],
 });
 
-console.log(calculator.multiply(10, 5));
+console.log(calculator.multiply(10, 5), calculator.runningValue);
