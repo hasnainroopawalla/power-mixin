@@ -22,7 +22,7 @@ $ yarn add ts-mixin
 
 ## 💡 Quick start
 
-A `Bank` system where the core functionality is _mixed_ in from various existing classes like `Amount` and `Deposit`.
+A `Bank` system where the core functionality is _mixed_ in from various existing classes like `Amount` and `Deposit`:
 
 ```typescript
 import { BaseMixin } from "ts-mixin";
@@ -32,7 +32,7 @@ type IAmount = {
   setAmount: (newAmount: number) => void;
 };
 
-// Simple class to manage the amount
+// Basic class to manage the amount
 class Amount implements IAmount {
   public amount: number = 1000;
 
@@ -63,7 +63,7 @@ type IDeposit = {
   deposit: (amount: number) => void;
 };
 
-// Simple class to deposit money into the account
+// Basic class to deposit money into the account
 class Deposit implements IDeposit {
   constructor(private readonly bank: IBank) {}
 
