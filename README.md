@@ -8,9 +8,9 @@
 
 ### Features
 
-- Intuitive way create mixins for easy integration into existing systems
-- Complete type-safety during compilation, along with runtime safety while creating and initializing the Mixins
-- Provides inter-class reusability of attributes (props/methods) by passing the _mixed_ object to the initializer (constructor).
+- Intuitive way to create Mixins for easy integration into existing systems
+- Strong type-safety during compilation, along with runtime safety while creating and initializing the Mixins
+- Provides inter-class reusability of attributes (props/methods) by passing the _mixed_ object to the initializer (constructor)
 
 ## 🏁 Getting started
 
