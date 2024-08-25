@@ -9,13 +9,17 @@ export class BindUtils {
       const methodValue = mixin[method];
 
       if (base[methodName]) {
-        throw new Error(`Method already defined: {${String(methodName)}}`);
+        console.error(
+          `Method already defined on the base object: {${String(methodName)}}`
+        );
+        return;
       }
 
       if (typeof methodValue !== "function") {
-        throw new Error(
-          `Attempted to bind an invalid method: {${String(methodName)}}`
+        console.error(
+          `Attempted to bind a prop as a method: {${String(methodName)}}`
         );
+        return;
       }
 
       base[methodName] = methodValue.bind(mixin);
@@ -31,13 +35,17 @@ export class BindUtils {
       const propName = prop as unknown as keyof TBase;
 
       if (base[propName]) {
-        throw new Error(`Property already defined: {${String(propName)}}`);
+        console.error(
+          `Property already defined on the base object: {${String(propName)}}`
+        );
+        return;
       }
 
       if (typeof mixin[prop] === "function") {
-        throw new Error(
-          `Attempted to bind an invalid prop: {${String(propName)}}`
+        console.error(
+          `Attempted to bind a method as a prop: {${String(propName)}}`
         );
+        return;
       }
 
       Object.defineProperty(base, prop, {
