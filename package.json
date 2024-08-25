@@ -20,7 +20,7 @@
     "LICENSE",
     "README.md"
   ],
-  "keywords": [],
+  "keywords": ["typescript", "mixin", "mixins", "oop", "generics", "runtime"],
   "author": "Hasnain Roopawalla",
   "license": "MIT",
   "devDependencies": {
