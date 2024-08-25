@@ -4,13 +4,13 @@
 
 ## Overview
 
-`power-mixin` is a lightweight TypeScript Mixin framework. The Mixin pattern is meant to add reusable functionality to objects without any class inheritance ([source](https://www.patterns.dev/vanilla/mixin-pattern/)).
+`power-mixin` is a lightweight TypeScript Mixin framework. The [Mixin pattern](https://www.patterns.dev/vanilla/mixin-pattern/) is meant to add reusable functionality to objects without any class inheritance.
 
 ### Features
 
-- Intuitive way to create Mixins for easy integration into existing systems
-- Strong type-safety during compilation, along with runtime safety while creating and initializing the Mixins
-- Provides inter-class reusability of attributes (props/methods) by passing the _mixed_ object to the initializer (constructor)
+- Intuitive way to create Mixins for easy integration into existing systems.
+- Strong type-safety during compilation, along with runtime safety while creating and initializing the Mixins.
+- Provides inter-class reusability of attributes (props/methods) by passing the _mixed_ object to the initializer (constructor).
 
 ## 🏁 Getting started
 
@@ -108,10 +108,10 @@ bank.setAmount(2000);
 console.log(bank.amount); // 2000
 ```
 
-Runtime safety is guaranteed while mixing objects in the following scenarios:
+Runtime safety is guaranteed in the following scenarios:
 
-- Attempting to bind a method as a prop and vice versa
-- Attempting to bind a prop/method that already exists on the object
+- Attempting to bind a method as a prop and vice versa.
+- Attempting to bind a prop/method that already exists on the object.
 
 ## ✏️ Contributing
 
