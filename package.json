@@ -1,8 +1,8 @@
 {
-  "name": "mixin-ts",
-  "version": "0.0.2",
+  "name": "power-mixin",
+  "version": "0.0.3",
   "description": "A lightweight TypeScript Mixin framework.",
-  "repository": "https://github.com/hasnainroopawalla/mixin-ts",
+  "repository": "https://github.com/hasnainroopawalla/power-mixin",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

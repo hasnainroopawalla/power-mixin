@@ -1,10 +1,10 @@
-# mixin-ts
+# power-mixin
 
-[![Minified Size](https://badgen.net/bundlephobia/min/mixin-ts)](https://bundlephobia.com/result?p=mixin-ts)
+[![Minified Size](https://badgen.net/bundlephobia/min/power-mixin)](https://bundlephobia.com/result?p=power-mixin)
 
 ## Overview
 
-`mixin-ts` is a lightweight TypeScript Mixin framework. The Mixin pattern is meant to add reusable functionality to objects without any class inheritance ([source](https://www.patterns.dev/vanilla/mixin-pattern/)).
+`power-mixin` is a lightweight TypeScript Mixin framework. The Mixin pattern is meant to add reusable functionality to objects without any class inheritance ([source](https://www.patterns.dev/vanilla/mixin-pattern/)).
 
 ### Features
 
@@ -15,9 +15,9 @@
 ## 🏁 Getting started
 
 ```
-$ npm install mixin-ts
+$ npm install power-mixin
 // OR
-$ yarn add mixin-ts
+$ yarn add power-mixin
 ```
 
 ## 💡 Quick start
@@ -25,7 +25,7 @@ $ yarn add mixin-ts
 A `Bank` system where the core functionality is _mixed_ in from various existing classes like `Amount` and `Deposit`:
 
 ```typescript
-import { BaseMixin } from "mixin-ts";
+import { BaseMixin } from "power-mixin";
 
 type IAmount = {
   amount: number;
@@ -57,7 +57,7 @@ class AmountMixin extends BaseMixin<IBank, IAmount> {
 ```
 
 ```typescript
-import { BaseMixin } from "mixin-ts";
+import { BaseMixin } from "power-mixin";
 
 type IDeposit = {
   deposit: (amount: number) => void;
@@ -94,7 +94,7 @@ type IBank = IAmount & IDeposit;
 Create the mixed `bank` object using an input list of Mixin implementations:
 
 ```typescript
-import { mix } from "mixin-ts";
+import { mix } from "power-mixin";
 
 const bank = mix<IBank>({
   mixins: [new AmountMixin(), new DepositMixin()],
@@ -115,5 +115,5 @@ Runtime safety is guaranteed while mixing objects in the following scenarios:
 
 ## ✏️ Contributing
 
-- Post any issues and suggestions on the GitHub [issues](https://github.com/hasnainroopawalla/mixin-ts/issues) page.
+- Post any issues and suggestions on the GitHub [issues](https://github.com/hasnainroopawalla/power-mixin/issues) page.
 - To contribute, fork the project and then create a pull request back to `main`.
