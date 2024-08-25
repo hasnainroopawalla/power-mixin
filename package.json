@@ -1,6 +1,6 @@
 {
   "name": "ts-mixin",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A lightweight TypeScript Mixin framework.",
   "repository": "https://github.com/hasnainroopawalla/ts-mixin",
   "main": "dist/index.js",
