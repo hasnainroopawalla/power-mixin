@@ -4,9 +4,13 @@
 
 ## Overview
 
-`ts-mixin` is lightweight TypeScript framework for Mixins. It provides a very intuitive way to create Mixins from existing classes, so it's very easy to integrate into existing systems. Along with complete type-safety during compilation, the framework also provides runtime safety while creating and initializing the Mixins.
+`ts-mixin` is a lightweight TypeScript Mixin framework. The Mixin pattern is meant to add reusable functionality to objects without any class inheritance ([source](https://www.patterns.dev/vanilla/mixin-pattern/)).
 
-The Mixin pattern is meant to add reusable functionality to objects without any class inheritance ([source](https://www.patterns.dev/vanilla/mixin-pattern/)). `ts-mixin` ensures inter-class reusability of attributes (props/methods) by passing the _mixed_ object to the initializer (constructor).
+### Features
+
+- Intuitive way create mixins for easy integration into existing systems
+- Complete type-safety during compilation, along with runtime safety while creating and initializing the Mixins
+- Provides inter-class reusability of attributes (props/methods) by passing the _mixed_ object to the initializer (constructor).
 
 ## 🏁 Getting started
 
