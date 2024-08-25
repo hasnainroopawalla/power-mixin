@@ -116,7 +116,7 @@ describe("Example Bank", () => {
       });
 
       expect(console.error).toHaveBeenCalledWith(
-        "Method already defined on the base object: {withdraw}"
+        "Method already defined on the base object {withdraw}"
       );
     });
 
@@ -129,11 +129,11 @@ describe("Example Bank", () => {
 
       expect(logSpy).toHaveBeenNthCalledWith(
         1,
-        "Method already defined on the base object: {setAmount}"
+        "Method already defined on the base object {setAmount}"
       );
       expect(logSpy).toHaveBeenNthCalledWith(
         2,
-        "Property already defined on the base object: {amount}"
+        "Property already defined on the base object {amount}"
       );
     });
   });
@@ -177,7 +177,7 @@ describe("Example Bank", () => {
       expect(logSpy).toHaveBeenCalledTimes(1);
 
       expect(console.error).toHaveBeenCalledWith(
-        "Attempted to bind a method as a prop: {setAmount}"
+        "Attempted to bind a method as a prop {setAmount}"
       );
     });
 
@@ -191,7 +191,7 @@ describe("Example Bank", () => {
       expect(logSpy).toHaveBeenCalledTimes(1);
 
       expect(console.error).toHaveBeenCalledWith(
-        "Attempted to bind a prop as a method: {amount}"
+        "Attempted to bind a prop as a method {amount}"
       );
     });
   });

@@ -9,16 +9,15 @@ export class BindUtils {
       const methodValue = mixin[method];
 
       if (base[methodName]) {
-        console.error(
-          `Method already defined on the base object: {${String(methodName)}}`
+        BindUtils.logError(
+          "Method already defined on the base object",
+          methodName
         );
         return;
       }
 
       if (typeof methodValue !== "function") {
-        console.error(
-          `Attempted to bind a prop as a method: {${String(methodName)}}`
-        );
+        BindUtils.logError("Attempted to bind a prop as a method", methodName);
         return;
       }
 
@@ -35,16 +34,15 @@ export class BindUtils {
       const propName = prop as unknown as keyof TBase;
 
       if (base[propName]) {
-        console.error(
-          `Property already defined on the base object: {${String(propName)}}`
+        BindUtils.logError(
+          "Property already defined on the base object",
+          propName
         );
         return;
       }
 
       if (typeof mixin[prop] === "function") {
-        console.error(
-          `Attempted to bind a method as a prop: {${String(propName)}}`
-        );
+        BindUtils.logError("Attempted to bind a method as a prop", propName);
         return;
       }
 
@@ -55,5 +53,12 @@ export class BindUtils {
         },
       });
     });
+  }
+
+  private static logError(
+    message: string,
+    attribute: string | number | symbol
+  ) {
+    console.error(`${message} {${String(attribute)}}`);
   }
 }
