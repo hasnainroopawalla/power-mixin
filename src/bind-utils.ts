@@ -8,6 +8,10 @@ export class BindUtils {
       const methodName = method as unknown as keyof TBase;
       const methodValue = mixin[method];
 
+      if (base[methodName]) {
+        throw new Error(`Method already defined: {${String(methodName)}}`);
+      }
+
       if (typeof methodValue !== "function") {
         throw new Error(
           `Attempted to bind an invalid method: {${String(methodName)}}`
@@ -25,18 +29,21 @@ export class BindUtils {
   ): void {
     props.forEach(prop => {
       const propName = prop as unknown as keyof TBase;
-      const propValue = mixin[prop];
 
-      if (typeof propValue === "function") {
+      if (base[propName]) {
+        throw new Error(`Property already defined: {${String(propName)}}`);
+      }
+
+      if (typeof mixin[prop] === "function") {
         throw new Error(
           `Attempted to bind an invalid prop: {${String(propName)}}`
         );
       }
 
       Object.defineProperty(base, prop, {
-        get: () => propValue,
+        get: () => mixin[prop],
         set: value => {
-          base[propName] = value;
+          mixin[prop] = value;
         },
       });
     });

@@ -3,7 +3,7 @@ import { BindUtils } from "./bind-utils";
 type IBaseMixinArgs<TBase, TMixin> = {
   props: Array<keyof TMixin>;
   methods: Array<keyof TMixin>;
-  initMixin: (baseObj: TBase) => TMixin;
+  initMixin: (base: TBase) => TMixin;
 };
 
 export class BaseMixin<TBase, TMixin> {

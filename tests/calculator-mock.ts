@@ -1,4 +1,4 @@
-import { BaseMixin, mix } from "./src";
+import { BaseMixin } from "../src";
 
 type IAddService = {
   add: (num1: number, num2: number) => number;
@@ -21,7 +21,7 @@ export class AddMixin extends BaseMixin<ICalculator, IAddService> {
     super({
       methods: ["add"],
       props: [],
-      initMixin: baseObj => new AddService(baseObj),
+      initMixin: calculator => new AddService(calculator),
     });
   }
 }
@@ -55,15 +55,9 @@ export class MultiplyMixin extends BaseMixin<ICalculator, IMultiplyService> {
     super({
       methods: ["multiply"],
       props: ["runningValue"],
-      initMixin: baseObj => new MultiplyService(baseObj),
+      initMixin: calculator => new MultiplyService(calculator),
     });
   }
 }
 
-type ICalculator = IAddService & IMultiplyService;
-
-const calculator = mix<ICalculator>({
-  mixins: [new AddMixin(), new MultiplyMixin()],
-});
-
-console.log(calculator.multiply(10, 5), calculator.runningValue);
+export type ICalculator = IAddService & IMultiplyService;

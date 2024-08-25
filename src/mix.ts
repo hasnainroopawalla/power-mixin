@@ -1,6 +1,6 @@
 type InputMixin<TBase> = { initMixin: (baseObj: TBase) => void };
 
-type IMix<TBase> = {
+type IMixArgs<TBase> = {
   mixins: InputMixin<TBase>[];
 };
 
@@ -16,12 +16,10 @@ type IMix<TBase> = {
  *     ]
  * })
  */
-export const mix = <TBase>(args: IMix<TBase>) => {
-  const baseObj = {} as TBase;
+export const mix = <TBase>(args: IMixArgs<TBase>) => {
+  const base = {} as TBase;
 
-  args.mixins.forEach(mixin => {
-    mixin.initMixin(baseObj);
-  });
+  args.mixins.forEach(mixin => mixin.initMixin(base));
 
-  return baseObj;
+  return base;
 };
